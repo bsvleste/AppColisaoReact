@@ -42,7 +42,7 @@ class Login extends React.Component {
         if(tokenUsuario == 'Bruno')
         {
             await AsyncStorage.setItem('tokenUsuario','abc');
-            this.props.navigation.navigate('Home');
+            this.props.navigation.navigate('Bid');
             //this.setState({tokenUsuario:'abc'});
         }else{
             alert(token);

@@ -4,6 +4,9 @@ import { StyleSheet,View,Text,Button ,AsyncStorage,TextInput,TouchableHighlight 
 class CadastroUsuario extends React.Component {
     static navigationOptions = ({navigation})=>({
         title:'Cadastro Usuario',
+        headerStyle:{
+            backgroundColor:'#FFF20B',
+        }
     });
     constructor(props){
         super(props);

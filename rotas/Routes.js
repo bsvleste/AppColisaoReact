@@ -1,7 +1,10 @@
-import { createStackNavigator, StackNavigator, createSwitchNavigator } from 'react-navigation';
+import { createStackNavigator, StackNavigator, createSwitchNavigator,createBottomTabNavigator } from 'react-navigation';
 import Login from '../Login/Login';
-import Home from '../Home/Home';
-import Detalhes from '../Detalhes/Detalhes';
+import Bid from '../Paginas/Bid/Bid';
+import Mensalidade from '../Paginas/Mensalidade/Mensalidade';
+import Home from  '../Paginas/Home/Home';
+import Registro from '../Paginas/Registro/Registro';
+import Resultados from '../Paginas/Resultado/Resultado';
 import AutoLoading from '../Login/AutoLoading';
 import CadastroUsuario from '../Login/CadastroUsuario';
 
@@ -9,17 +12,14 @@ const RotasNaoAutorizada = createStackNavigator({
           
         Login:Login,
         CadastroUsuario:CadastroUsuario
-    },
-    {
+    });
 
-    
-            
-});
-
- const RotasAutorizadas = createStackNavigator({
+ const RotasAutorizadas = createBottomTabNavigator({
         Home:Home,
-        Detalhes:Detalhes,
-        initialRouteName:'Home',
+        Mensalidade:Mensalidade,
+        Bid:Bid,
+        Registro:Registro,
+        Resultados:Resultados
   });
 const Rotas = createSwitchNavigator(
     {
@@ -31,4 +31,5 @@ const Rotas = createSwitchNavigator(
         initialRouteName:'AutoLoading',
     }
 );
+
 export default Rotas; 
