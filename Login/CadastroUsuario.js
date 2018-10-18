@@ -1,11 +1,12 @@
 import React from 'react'
 import { StyleSheet,View,Text,Button ,AsyncStorage,TextInput,TouchableHighlight } from 'react-native';
+import color from '../assets/style/color';
 
 class CadastroUsuario extends React.Component {
     static navigationOptions = ({navigation})=>({
         title:'Cadastro Usuario',
         headerStyle:{
-            backgroundColor:'#FFF20B',
+            backgroundColor:color.amarelo,
         }
     });
     constructor(props){
@@ -61,16 +62,6 @@ const styles = StyleSheet.create({
         height:200,
         justifyContent:'space-between'
     },
-    btn_login:{
-        height:90,
-        backgroundColor:'red',
-    },
-    link:{
-        paddingTop: 30,
-        paddingRight: 20,
-        color:'#fff',
-        alignSelf: 'flex-end',
-    },
     text:{
         color:"#000",
     },
@@ -78,11 +69,11 @@ const styles = StyleSheet.create({
         width:"90%",
         height:40,
         borderBottomWidth: 4,
-        borderBottomColor: "#FFF20B",
+        borderBottomColor: color.amarelo,
         color:"#fff",
     },
     btnLogin:{
-        backgroundColor:'#FFF20B',
+        backgroundColor:color.amarelo,
         marginTop: 20,
         padding: 15,
         width:"90%",

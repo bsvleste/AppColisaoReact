@@ -7,6 +7,7 @@ import Registro from '../Paginas/Registro/Registro';
 import Resultados from '../Paginas/Resultado/Resultado';
 import AutoLoading from '../Login/AutoLoading';
 import CadastroUsuario from '../Login/CadastroUsuario';
+import color from '../assets/style/color';
 
 const RotasNaoAutorizada = createStackNavigator({
           
@@ -16,10 +17,21 @@ const RotasNaoAutorizada = createStackNavigator({
 
  const RotasAutorizadas = createBottomTabNavigator({
         Home:Home,
-        Mensalidade:Mensalidade,
         Bid:Bid,
+        Mensalidade:Mensalidade,
         Registro:Registro,
         Resultados:Resultados
+ },{
+    initialRouteName:'Home',
+    tabBarOptions: {
+        activeTintColor: '#000',
+        labelStyle: {
+          fontSize: 12,
+        },
+        style: {
+          backgroundColor: color.amarelo ,
+        },
+      }
   });
 const Rotas = createSwitchNavigator(
     {

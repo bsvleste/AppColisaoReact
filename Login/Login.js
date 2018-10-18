@@ -1,5 +1,6 @@
 import React from 'react'
 import { StyleSheet,View,Text,Button ,AsyncStorage,TextInput,TouchableHighlight } from 'react-native';
+import color from '../assets/style/color';
 
 class Login extends React.Component {
     static navigationOptions = ({navigation})=>({
@@ -42,7 +43,7 @@ class Login extends React.Component {
         if(tokenUsuario == 'Bruno')
         {
             await AsyncStorage.setItem('tokenUsuario','abc');
-            this.props.navigation.navigate('Bid');
+            this.props.navigation.navigate('Home');
             //this.setState({tokenUsuario:'abc'});
         }else{
             alert(token);
@@ -65,10 +66,6 @@ const styles = StyleSheet.create({
         height:200,
         justifyContent:'space-between'
     },
-    btn_login:{
-        height:90,
-        backgroundColor:'red',
-    },
     link:{
         paddingTop: 30,
         paddingRight: 20,
@@ -82,11 +79,11 @@ const styles = StyleSheet.create({
         width:"90%",
         height:40,
         borderBottomWidth: 4,
-        borderBottomColor: "#FFF20B",
+        borderBottomColor: color.amarelo,
         color:"#fff",
     },
     btnLogin:{
-        backgroundColor:'#FFF20B',
+        backgroundColor:color.amarelo,
         padding: 15,
         width:"90%",
         alignItems: 'center',    
