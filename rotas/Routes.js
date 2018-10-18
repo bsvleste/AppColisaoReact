@@ -9,6 +9,9 @@ import AutoLoading from '../Login/AutoLoading';
 import CadastroUsuario from '../Login/CadastroUsuario';
 import color from '../assets/style/color';
 
+const menuHome = createDrawerNavigator({
+    Janeiro:Resultados
+})
 const RotasNaoAutorizada = createStackNavigator({
           
         Login:Login,

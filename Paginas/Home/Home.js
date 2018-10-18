@@ -1,5 +1,5 @@
 import React from 'react'
-import{ View, Text,Button,AsyncStorage,ScrollView } from 'react-native';
+import{ View, Text,Button,AsyncStorage,ScrollView,Image} from 'react-native';
 import {FontAwesome } from '@expo/vector-icons';
 import styles from './style';
 
@@ -14,46 +14,50 @@ class Home extends React.Component {
       />
     ),
   };
-  
+  mostraTexto(){
+    let texto = [];
+    let img = '../../assets/img/logoColisao.png';
+
+    for(var i=0;i <20;i++)
+    {
+      texto.push(
+        <View key={`story-${i}`} style={styles.exibirTexto}>
+          
+          <View style={styles.data}>
+          <Text>Data 03/04/20118</Text>
+          </View>
+          
+          <View style={styles.quadro}>
+          <Text style={styles.texto}>2 Quadro</Text>
+          <Image source={require(img)} style={styles.img}/>
+          <Text style={styles.texto}>5 x 0</Text>
+          <FontAwesome
+          name='home'
+          size={50}
+          
+          />
+          </View>
+          <View style={styles.quadro}>
+          <Text style={styles.texto}>1 Quadro</Text>
+          <Image source={require(img)} style={styles.img}/>
+          <Text style={styles.texto}>5 x 0</Text>
+          <FontAwesome
+          name='home'
+          size={50}
+          
+          />
+          </View>
+
+        </View>
+      )
+    }
+    return texto;
+  }
   render(){
         return(
           <View style={styles.container}>
-          <ScrollView style={styles.scroll} contentInset={{ bottom: 16 }}>
-            <View style={{height:200,width:'90%',backgroundColor:'#fff'}}>
-            <Text>Funfou</Text>
-            </View>
-            <View style={{height:200,width:'90%',backgroundColor:'#f56'}}>
-            <Text style={{color:'white',}}>Funfou</Text>
-            </View><View style={{height:200,width:'90%',backgroundColor:'#fff'}}>
-            <Text>Funfou</Text>
-            </View><View style={{height:200,width:'90%',backgroundColor:'#fff'}}>
-            <Text>Funfou</Text>
-            </View><View style={{height:200,width:'90%',backgroundColor:'#fff'}}>
-            <Text>Funfou</Text>
-            </View><View style={{height:200,width:'90%',backgroundColor:'#fff'}}>
-            <Text>Funfou</Text>
-            </View><View style={{height:200,width:'90%',backgroundColor:'#fff'}}>
-            <Text>Funfou</Text>
-            </View><View style={{height:200,width:'90%',backgroundColor:'#fff'}}>
-            <Text>Funfou</Text>
-            </View><View style={{height:200,width:'90%',backgroundColor:'#fff'}}>
-            <Text>Funfou</Text>
-            </View><View style={{height:200,width:'90%',backgroundColor:'#fff'}}>
-            <Text>Funfou</Text>
-            </View><View style={{height:200,width:'90%',backgroundColor:'#fff'}}>
-            <Text>Funfou</Text>
-            </View><View style={{height:200,width:'90%',backgroundColor:'#fff'}}>
-            <Text>Funfou</Text>
-            </View><View style={{height:200,width:'90%',backgroundColor:'#fff'}}>
-            <Text>Funfou</Text>
-            </View><View style={{height:200,width:'90%',backgroundColor:'#fff'}}>
-            <Text>Funfou</Text>
-            </View><View style={{height:200,width:'90%',backgroundColor:'#fff'}}>
-            <Text>Funfou</Text>
-            </View><View style={{height:200,width:'90%',backgroundColor:'#fff',paddingTop:22,backgroundColor:'red',}}>
-            <Text>Funfou</Text>
-            
-            </View>
+          <ScrollView style={styles.scroll}>
+           {this.mostraTexto()}
           </ScrollView >
           </View>
         )
