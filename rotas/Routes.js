@@ -8,8 +8,6 @@ import Resultados from '../Paginas/Resultado/Resultado';
 import AutoLoading from '../Login/AutoLoading';
 import CadastroUsuario from '../Login/CadastroUsuario';
 import color from '../assets/style/color';
-import Janeiro  from '../Paginas/Home/menuLateral/Janeiro';
-import Fevereiro  from '../Paginas/Home/menuLateral/Fevereiro';
 import {FontAwesome } from '@expo/vector-icons';
 
 const RotasNaoAutorizada = createStackNavigator({

@@ -2,7 +2,6 @@ import React from 'react'
 import{ View, Text,Button,AsyncStorage,ScrollView,Image} from 'react-native';
 import {FontAwesome } from '@expo/vector-icons';
 import styles from './style';
-import MenuLateral from './MenuLateral';
 import {createDrawerNavigator} from 'react-navigation';
 class Home extends React.Component {
   static navigationOptions = {
@@ -35,11 +34,8 @@ class Home extends React.Component {
       this.props.navigation.navigate('Detalhes');
     }
 }
-class Janeiro extends React.Component {
-  static navigationOptions = {
-      drawerLabel:'Janeiro',
-
-    };
+class MostraJogo extends React.Component {
+  
     mostraTexto(){
       let texto = [];
       let img = '../../assets/img/logoColisao.png';
@@ -94,7 +90,19 @@ class Fevereiro extends React.Component {
   render() {
       return (
          <View>
-         <Text>Ol a</Text>
+           <MostraJogo/>
+         </View>
+      );
+  }
+}
+class Janeiro extends React.Component {
+  static navigationOptions = {
+      drawerLabel:'Janeiro'
+    };
+  render() {
+      return (
+         <View>
+           <MostraJogo />
          </View>
       );
   }
