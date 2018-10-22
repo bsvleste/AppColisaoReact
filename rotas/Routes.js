@@ -1,4 +1,4 @@
-import { createStackNavigator, StackNavigator, createSwitchNavigator,createBottomTabNavigator } from 'react-navigation';
+import { createStackNavigator, StackNavigator, createSwitchNavigator,createBottomTabNavigator,createDrawerNavigator } from 'react-navigation';
 import Login from '../Login/Login';
 import Bid from '../Paginas/Bid/Bid';
 import Mensalidade from '../Paginas/Mensalidade/Mensalidade';
@@ -8,10 +8,10 @@ import Resultados from '../Paginas/Resultado/Resultado';
 import AutoLoading from '../Login/AutoLoading';
 import CadastroUsuario from '../Login/CadastroUsuario';
 import color from '../assets/style/color';
+import Janeiro  from '../Paginas/Home/menuLateral/Janeiro';
+import Fevereiro  from '../Paginas/Home/menuLateral/Fevereiro';
+import {FontAwesome } from '@expo/vector-icons';
 
-const menuHome = createDrawerNavigator({
-    Janeiro:Resultados
-})
 const RotasNaoAutorizada = createStackNavigator({
           
         Login:Login,
@@ -34,7 +34,8 @@ const RotasNaoAutorizada = createStackNavigator({
         style: {
           backgroundColor: color.amarelo ,
         },
-      }
+      },
+      
   });
 const Rotas = createSwitchNavigator(
     {
