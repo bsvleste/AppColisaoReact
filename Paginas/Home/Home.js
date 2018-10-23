@@ -1,8 +1,11 @@
 import React from 'react'
-import{ View, Text,Button,AsyncStorage,ScrollView,Image,FlatList} from 'react-native';
+import{ View, Text,Button,AsyncStorage,ScrollView,Image,ViewList} from 'react-native';
 import {FontAwesome } from '@expo/vector-icons';
 import styles from './style';
-import {createDrawerNavigator,createTabNavigator} from 'react-navigation';
+import {createDrawerNavigator,createTabNavigator,createStackNavigator} from 'react-navigation';
+import { meses } from '../../Services/Meses';
+import { List,ListItem} from 'react-native-elements';
+
 class Home extends React.Component {
   static navigationOptions = {
     title:'Home'
@@ -18,11 +21,11 @@ class Home extends React.Component {
       />
     ),
   };
-  
+
   render(){
         return(
           <View style={styles.container}>
-          <Meses/>
+          <Meses />
           </View>
         )
     }
@@ -84,31 +87,53 @@ class MostraJogo extends React.Component {
   }
 }
 class Fevereiro extends React.Component {
-  static navigationOptions ={
-    drawerLabel:this._
+  mostraResultado = (mes) =>{
+    this.props.navigation.navigate('Janeiro',{...mes});
   }
   render() {
       return (
-         <View>
-           <MostraJogo/>
-         </View>
+         <ScrollView>         
+         
+         <List>
+         {meses.map((mes)=>(
+
+           <ListItem
+           key={mes.id}
+           title={mes.descricao}
+           onPress={()=>this.mostraResultado(mes)}
+           />   
+           
+          ))
+         }
+         </List>      
+         </ScrollView>
       );
   }
 }
 class Janeiro extends React.Component {
-  
-  render() {
+    render() {
+      const {id,descricao} =this.props.navigation.state.params;
       return (
-         <View>
-           <MostraJogo />
+         <View>           
+         <Text style={styles.texto}>{descricao}</Text>
          </View>
       );
   }
 }
 
-export const Meses = createTabNavigator({
-  
-  Janeiro:Janeiro,
-  Fevereiro:Fevereiro,
+export const Meses = createStackNavigator ({
+  Fevereiro:{
+    screen:Fevereiro,
+    navigationOptions:{
+      title:'Resultados dos Jogos',
+    },
+  },
+  Janeiro:{
+    screen:Janeiro,
+    navigationOptions:({navigation})=>({
+      title:`${navigation.state.params.descricao}`,
+    })
+
+  }
 })
 export default Home;
