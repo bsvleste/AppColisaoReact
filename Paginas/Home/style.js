@@ -12,10 +12,8 @@ const styles = StyleSheet.create({
         marginBottom:-1,
     },
     exibirTexto:{
-        height:200,
         marginTop:5,
         marginBottom:50,
-        backgroundColor:'#fff'
     },
     quadro:{
         flexDirection:'row',
@@ -28,8 +26,7 @@ const styles = StyleSheet.create({
         marginLeft:10
     },
     texto:{
-        paddingLeft: 10,
-        fontSize:23,
+        fontSize:20,
         alignSelf:'center'
     },
     data:{

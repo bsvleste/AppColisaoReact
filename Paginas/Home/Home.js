@@ -4,7 +4,9 @@ import {FontAwesome } from '@expo/vector-icons';
 import styles from './style';
 import {createDrawerNavigator,createTabNavigator,createStackNavigator} from 'react-navigation';
 import { meses } from '../../Services/Meses';
-import { List,ListItem} from 'react-native-elements';
+import { List,ListItem, Card} from 'react-native-elements';
+import color from '../../assets/style/color';
+
 
 class Home extends React.Component {
   static navigationOptions = {
@@ -37,71 +39,20 @@ class Home extends React.Component {
       this.props.navigation.navigate('Detalhes');
     }
 }
-class MostraJogo extends React.Component {
-  
-    mostraTexto(){
-      let texto = [];
-      let img = '../../assets/img/logoColisao.png';
-  
-      for(var i=0;i <4;i++)
-      {
-        texto.push(
-          <View key={`story-${i}`} style={styles.exibirTexto}>
-            
-            <View style={styles.data}>
-            <Text>Data 03/04/20118</Text>
-            </View>
-            
-            <View style={styles.quadro}>
-            <Text style={styles.texto}>2 Quadro</Text>
-            <Image source={require(img)} style={styles.img}/>
-            <Text style={styles.texto}>5 x 0</Text>
-            <FontAwesome
-            name='home'
-            size={50}
-            
-            />
-            </View>
-            <View style={styles.quadro}>
-            <Text style={styles.texto}>1 Quadro</Text>
-            <Image source={require(img)} style={styles.img}/>
-            <Text style={styles.texto}>5 x 0</Text>
-            <FontAwesome
-            name='home'
-            size={50}
-            
-            />
-            </View>
-  
-          </View>
-        )
-      }
-      return texto;
-    }
-  render() {
-      return (
-          <ScrollView style={styles.scroll}>
-          {this.mostraTexto()}
-         </ScrollView >
-      );
-  }
-}
 class Fevereiro extends React.Component {
   mostraResultado = (mes) =>{
     this.props.navigation.navigate('Janeiro',{...mes});
   }
   render() {
       return (
-         <ScrollView>         
-         
+         <ScrollView>
          <List>
          {meses.map((mes)=>(
-
            <ListItem
            key={mes.id}
            title={mes.descricao}
            onPress={()=>this.mostraResultado(mes)}
-           />   
+           />  
            
           ))
          }
@@ -112,11 +63,41 @@ class Fevereiro extends React.Component {
 }
 class Janeiro extends React.Component {
     render() {
-      const {id,descricao} =this.props.navigation.state.params;
+      const {id,descricao,placar} =this.props.navigation.state.params;
+      const img = '../../assets/img/logoColisao.png';
       return (
-         <View>           
-         <Text style={styles.texto}>{descricao}</Text>
-         </View>
+         <ScrollView style={styles.container}>        
+         {placar.map((resultado)=>(
+          <Card key={`resultado.id`} containerStyle={styles.exibirTexto}>          
+          <View style={styles.data}>
+          
+          <Text>{resultado.data}</Text>
+          </View>
+          
+          <View style={styles.quadro}>
+          <Text style={styles.texto}>2 Quadro</Text>
+          <Image source={require(img)} style={styles.img}/>
+          <Text style={styles.texto}>{resultado.quadro_2.colisao} X {resultado.quadro_2.adversario}</Text>
+          <FontAwesome
+          name='home'
+          size={50}
+          
+          />
+          </View>
+          <View style={styles.quadro}>
+          <Text style={styles.texto}>1 Quadro</Text>
+          <Image source={require(img)} style={styles.img}/>
+          <Text style={styles.texto}>{resultado.quadro_1.colisao} X {resultado.quadro_1.adversario}</Text>
+          <FontAwesome
+          name='home'
+          size={50}
+          
+          />
+          </View>
+
+        </Card>
+          ))}
+         </ScrollView>
       );
   }
 }
@@ -125,13 +106,19 @@ export const Meses = createStackNavigator ({
   Fevereiro:{
     screen:Fevereiro,
     navigationOptions:{
-      title:'Resultados dos Jogos',
+      title:'Placar dos Jogos',
+      headerStyle:{
+        backgroundColor:color.amarelo,
+      }
     },
   },
   Janeiro:{
     screen:Janeiro,
     navigationOptions:({navigation})=>({
       title:`${navigation.state.params.descricao}`,
+      headerStyle:{
+        backgroundColor:color.amarelo,
+      }
     })
 
   }
