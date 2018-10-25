@@ -1,6 +1,9 @@
 import React from 'react'
-import{ AsyncStorage,View, Text,Button } from 'react-native';
+import{ AsyncStorage,View, Text } from 'react-native';
 import {FontAwesome } from '@expo/vector-icons';
+import style from '../../assets/style/style';
+import color from '../../assets/style/color';
+import {Header,Button} from 'react-native-elements';
 
 class Bid extends React.Component{
   static navigationOptions = {
@@ -15,16 +18,18 @@ class Bid extends React.Component{
   };
   render(){
       return(
-        <View>
-          <Text> Tela Bid Screnn</Text>
+        <View style={style.container}>
+          <Header
+            backgroundColor={color.amarelo} 
+            centerComponent={{text:"BID",style:{color:'#000'}}}
+          />
+          <Text style={{backgroundColor:'#fff'}}> Tela Bid Screnn</Text>
           <Button 
             title="Bid"
+            buttonStyle={style.buttonBid}
             onPress={this._home}
             />
-            <Button 
-              title="Sair"
-              onPress={this._logoff}
-            />
+            
         </View>
       )
     }

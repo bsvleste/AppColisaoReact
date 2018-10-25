@@ -4,6 +4,7 @@ export const meses=[
         descricao:'Janeiro',
         placar:[
             {
+                id:1,
                 data:'12/01/19',
                 quadro_2:
                 {
@@ -17,6 +18,7 @@ export const meses=[
                 }, 
             },
             {
+                id:2,
                 data:'20/01/19',
                 quadro_2:
                 {
@@ -30,6 +32,7 @@ export const meses=[
                 }, 
             },
             {
+                id:3,
                 data:'27/01/19',
                 quadro_2:
                 {
@@ -43,6 +46,7 @@ export const meses=[
                 }, 
             },
             {
+                id:4,
                 data:'31/01/19',
                 quadro_2:
                 {

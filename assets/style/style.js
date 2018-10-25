@@ -31,6 +31,17 @@ const styles = StyleSheet.create({
     },
     data:{
         alignItems:'center',
-    }
+    },
+    /*style do bid*/ 
+    buttonBid:{
+        backgroundColor: color.amarelo,
+        width: 60,
+        height: 60,
+        borderColor: "transparent",
+        borderWidth: 0,
+        borderRadius: 100,
+        alignSelf:'center',
+        marginTop:400,
+      },
 });
   export default styles;

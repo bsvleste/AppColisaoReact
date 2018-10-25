@@ -1,7 +1,7 @@
 import React from 'react'
 import{ View, Text,Button,AsyncStorage,ScrollView,Image,ViewList} from 'react-native';
 import {FontAwesome } from '@expo/vector-icons';
-import styles from './style';
+import styles from '../../assets/style/style';
 import {createDrawerNavigator,createTabNavigator,createStackNavigator} from 'react-navigation';
 import { meses } from '../../Services/Meses';
 import { List,ListItem, Card} from 'react-native-elements';
@@ -68,7 +68,7 @@ class Janeiro extends React.Component {
       return (
          <ScrollView style={styles.container}>        
          {placar.map((resultado)=>(
-          <Card key={`resultado.id`} containerStyle={styles.exibirTexto}>          
+          <Card key={resultado.id} containerStyle={styles.exibirTexto}>          
           <View style={styles.data}>
           
           <Text>{resultado.data}</Text>
