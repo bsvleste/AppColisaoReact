@@ -5,9 +5,9 @@ const styles = StyleSheet.create({
     container:{
         flex: 1,
         backgroundColor: color.bgColor,
-        paddingTop: 22,
-        height:120,  
+       // paddingTop: 22,  
     },
+
     scroll:{    
         marginBottom:-1,
     },
@@ -33,7 +33,13 @@ const styles = StyleSheet.create({
         alignItems:'center',
     },
     /*style do bid*/ 
+    
+    exibiBid:{
+        paddingTop:50,
+    },
     buttonBid:{
+        position:'absolute',
+        zIndex:3,
         backgroundColor: color.amarelo,
         width: 60,
         height: 60,
@@ -41,7 +47,7 @@ const styles = StyleSheet.create({
         borderWidth: 0,
         borderRadius: 100,
         alignSelf:'center',
-        marginTop:400,
+        bottom:50,
       },
 });
   export default styles;

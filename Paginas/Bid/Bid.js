@@ -1,9 +1,11 @@
 import React from 'react'
-import{ AsyncStorage,View, Text } from 'react-native';
+import{ AsyncStorage,View, Text ,ScrollView} from 'react-native';
 import {FontAwesome } from '@expo/vector-icons';
 import style from '../../assets/style/style';
 import color from '../../assets/style/color';
-import {Header,Button} from 'react-native-elements';
+import {Header,Button,List,ListItem} from 'react-native-elements';
+import {bid} from '../../Services/Meses';
+import {createStackNavigator} from 'react-navigation';
 
 class Bid extends React.Component{
   static navigationOptions = {
@@ -18,27 +20,78 @@ class Bid extends React.Component{
   };
   render(){
       return(
-        <View style={style.container}>
-          <Header
-            backgroundColor={color.amarelo} 
-            centerComponent={{text:"BID",style:{color:'#000'}}}
-          />
-          <Text style={{backgroundColor:'#fff'}}> Tela Bid Screnn</Text>
-          <Button 
-            title="Bid"
-            buttonStyle={style.buttonBid}
-            onPress={this._home}
-            />
-            
-        </View>
+        <PaginaBid/>
       )
     }
     _home = async ()=>{
-      this.props.navigation.navigate('Mensalidade')
+      bid.push({id:1,Nome:'Lennon',bid:'s'});
+      
     };
     _logoff = async()=>{
-      await AsyncStorage.clear();
-      this.props.navigation.navigate('Login');
+      this.props.navigation.navigate('ExibiBid');
     };
   } 
+
+  class RespostaBid extends React.Component{
+    render(){
+      return(
+        <View>
+        <Text>Resposta bid</Text>
+        </View>
+      )
+    }
+  }
+  class ExibiBid extends React.Component{
+    render(){
+      return(
+        <View style={style.container}>
+        
+        <ScrollView>
+        {bid.map((res)=>(
+          <ListItem
+            key={res.id}
+            title={res.nome}
+            
+          />
+          
+        ))}
+        
+        </ScrollView>
+        <Button 
+        title="Bid"
+        buttonStyle={style.buttonBid}
+        onPress={this._bid}
+        />
+          </View>
+      )
+    }
+    
+    _bid = async()=>{
+      this.props.navigation.navigate('RespostaBid');
+    };
+  }
+  export const PaginaBid = createStackNavigator({
+    
+    ExibiBid:{
+      screen:ExibiBid,
+      navigationOptions:{
+        title:'BID',
+        headerStyle:{
+          backgroundColor:color.amarelo,
+        }
+      }
+      
+    },
+    RespostaBid:{
+      screen:RespostaBid,
+      navigationOptions:{
+        title:'Resposta Bid',
+        headerStyle:{
+          backgroundColor:color.amarelo,
+        }
+      },
+    }
+    
+     
+  })
   export default Bid;
