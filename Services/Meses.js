@@ -680,7 +680,7 @@ export const bid=[
     },{
         id:2,
         nome:'lennon',
-        bid:'s'
+        bid:'n'
     },{
         id:3,
         nome:'lennon',
@@ -688,7 +688,7 @@ export const bid=[
     },{
         id:4,
         nome:'lennon',
-        bid:'s'
+        bid:'n'
     }
     ,{
         id:5,
@@ -707,48 +707,21 @@ export const bid=[
         nome:'lennon',
         bid:'s'
     },{
-        id:7,
+        id:6,
         nome:'lennon',
         bid:'s'
     },{
         id:6,
         nome:'lennon',
-        bid:'s'
-    },{
-        id:7,
-        nome:'lennon',
-        bid:'s'
+        bid:'n'
     },{
         id:6,
         nome:'lennon',
         bid:'s'
     },{
-        id:7,
-        nome:'lennon',
-        bid:'s'
-    },{
         id:6,
         nome:'lennon',
-        bid:'s'
-    },{
-        id:7,
-        nome:'lennon',
-        bid:'s'
-    },{
-        id:6,
-        nome:'lennon',
-        bid:'s'
-    },{
-        id:7,
-        nome:'lennon',
-        bid:'s'
-    },{
-        id:6,
-        nome:'lennon',
-        bid:'s'
-    },{
-        id:7,
-        nome:'lennon',
-        bid:'s'
+        bid:'n'
     }
+
 ];

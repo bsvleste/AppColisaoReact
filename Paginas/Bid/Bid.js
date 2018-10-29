@@ -50,9 +50,21 @@ class Bid extends React.Component{
         {bid.map((res)=>(
           <ListItem
             key={res.id}
-            title={res.nome}
-            
+            title={
+              <View style={style.quadro}>
+              <FontAwesome
+              name={res.bid== 's'?'check-square':'window-close'}
+              size={26}
+              style={{ color: res.bid == 's' ? 'green' : 'red'}}
           />
+              <Text style={{color:res.bid== 's' ? 'green':'red',marginLeft:10}}>{res.nome}</Text>
+              </View>
+            }
+            titleStyle={{color:res.bid == 's' ? 'green': 'red'}}
+            
+            hideChevron={true}
+            containerStyle={{padding:25}}
+            />
           
         ))}
         
