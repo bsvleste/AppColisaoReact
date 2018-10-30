@@ -1,5 +1,5 @@
 import React from 'react'
-import{ AsyncStorage,View, Text ,ScrollView} from 'react-native';
+import{ AsyncStorage,View, Text ,ScrollView,Switch} from 'react-native';
 import {FontAwesome } from '@expo/vector-icons';
 import style from '../../assets/style/style';
 import color from '../../assets/style/color';
@@ -33,10 +33,52 @@ class Bid extends React.Component{
   } 
 
   class RespostaBid extends React.Component{
+    constructor(props){
+      super(props);
+      this.state ={
+        switchValue:false,
+        switchValueFalse:false
+      }
+   }
+   toggleButton = ()=>{
+     const valor={bid:''};
+     if(this.state.switchValue){
+        valor.bid = 's';
+      alert('Confirmado' +valor.bid);
+    }else{
+        valor.bid = 'n';
+      alert('Negado' + valor.bid);
+     }
+   }
     render(){
       return(
-        <View>
-        <Text>Resposta bid</Text>
+        <View style={style.container}>
+      <View>
+        <Switch 
+        onValueChange={(switchValue)=> this.setState({switchValue,switchValueFalse:false })}
+        value={this.state.switchValue}
+        />
+      <FontAwesome
+      name='check-square'
+      size={26}
+      style={{color:'green'}}
+      />
+      </View>
+      <View>
+      <Switch 
+      onValueChange={(switchValueFalse)=> this.setState({switchValueFalse,switchValue:false })}
+      value={this.state.switchValueFalse}
+    />
+    <FontAwesome
+    name='window-close'
+    size={26}
+    style={{color:'red'}}
+    />
+      </View>
+        <Button
+        title='Enviar'
+        onPress={this.toggleButton}
+        />
         </View>
       )
     }
@@ -81,6 +123,25 @@ class Bid extends React.Component{
     _bid = async()=>{
       this.props.navigation.navigate('RespostaBid');
     };
+  }
+
+  export const ButtonSwitch = (props) =>{
+    return (
+      <View>
+        <View>  
+          <Switch 
+            onValueChange={props.toggleButton}
+            value={props.switchValue}
+          />
+          <FontAwesome
+          name={props.name}
+          size={26}
+          style={{color:props.color}}
+          /> 
+        </View>
+        
+      </View>
+    )
   }
   export const PaginaBid = createStackNavigator({
     
