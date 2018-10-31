@@ -702,26 +702,5 @@ export const bid=[
         id:7,
         nome:'lennon',
         bid:'s'
-    },{
-        id:6,
-        nome:'lennon',
-        bid:'s'
-    },{
-        id:6,
-        nome:'lennon',
-        bid:'s'
-    },{
-        id:6,
-        nome:'lennon',
-        bid:'n'
-    },{
-        id:6,
-        nome:'lennon',
-        bid:'s'
-    },{
-        id:6,
-        nome:'lennon',
-        bid:'n'
     }
-
 ];
