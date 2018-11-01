@@ -23,7 +23,7 @@ const RotasNaoAutorizada = createStackNavigator({
         Registro:Registro,
         Resultados:Resultados
  },{
-    initialRouteName:'Bid',
+    initialRouteName:'Mensalidade',
     tabBarOptions: {
         activeTintColor: '#000',
         labelStyle: {

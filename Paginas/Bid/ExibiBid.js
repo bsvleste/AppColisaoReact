@@ -1,5 +1,5 @@
 import React from 'react'
-import{ AsyncStorage,View, Text ,ScrollView,Switch} from 'react-native';
+import{ AsyncStorage,View, Text ,ScrollView,Switch,TouchableHighlight} from 'react-native';
 import {FontAwesome } from '@expo/vector-icons';
 import style from '../../assets/style/style';
 import color from '../../assets/style/color';
@@ -41,7 +41,7 @@ class ExibiBid extends React.Component{
         buttonStyle={style.buttonBid}
         onPress={this._bid}
         />
-          </View>
+      </View>
       )
     }
     

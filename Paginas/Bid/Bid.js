@@ -44,7 +44,6 @@ class Bid extends React.Component{
           backgroundColor:color.amarelo,
         }
       }
-      
     },
     RespostaBid:{
       screen:RespostaBid,
@@ -53,9 +52,7 @@ class Bid extends React.Component{
         headerStyle:{
           backgroundColor:color.amarelo,
         }
-      },
-    }
-    
-     
+      }
+    },
   })
   export default Bid;

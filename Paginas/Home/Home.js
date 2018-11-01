@@ -1,10 +1,10 @@
 import React from 'react'
 import{ View, Text,Button,AsyncStorage,ScrollView,Image,ViewList} from 'react-native';
 import {FontAwesome } from '@expo/vector-icons';
-import styles from '../../assets/style/style';
 import {createDrawerNavigator,createTabNavigator,createStackNavigator} from 'react-navigation';
 import { meses } from '../../Services/Meses';
 import { List,ListItem, Card} from 'react-native-elements';
+import styles from '../../assets/style/style';
 import color from '../../assets/style/color';
 
 

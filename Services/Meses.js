@@ -2,6 +2,23 @@ export const meses=[
     {
         id:1,
         descricao:'Janeiro',
+        mensalidade:[
+            {
+                id:1,
+                jogadores:[
+                    {
+                        id:1,
+                        nome:'lennon',
+                        mensalidade:'PAGO'
+                    },
+                    {
+                        id:2,
+                        nome:'Bruno',
+                        mensalidade:'PENDENTE'
+                    }
+                ]
+            }
+        ],
         placar:[
             {
                 id:1,

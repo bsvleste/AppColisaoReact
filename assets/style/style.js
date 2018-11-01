@@ -49,5 +49,21 @@ const styles = StyleSheet.create({
         alignSelf:'center',
         bottom:50,
       },
+      respostaBid:{
+        flexDirection:'row',
+        alignItems:'center',
+        justifyContent:'space-around',
+        padding:50,
+    },
+    swicthStyle:{
+        transform:[{scaleX:1.3},{scaleY:1.3}]
+    },
+    btnResposta:{
+        backgroundColor:color.amarelo,
+        padding: 15,
+       width:"90%",
+        alignItems: 'center',    
+        alignSelf:'center',
+    }
 });
   export default styles;
