@@ -25,6 +25,15 @@ const styles = StyleSheet.create({
         borderRadius:50,
         marginLeft:10
     },
+    img_menu:{
+        height:80,
+        width:80,
+        borderRadius:50,
+        marginLeft:10,
+        alignSelf:'center',
+        
+
+    },
     texto:{
         fontSize:20,
         alignSelf:'center'

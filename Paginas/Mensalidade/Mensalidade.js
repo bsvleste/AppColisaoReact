@@ -1,11 +1,16 @@
 import React from 'react'
-import{ View, Text,Button,AsyncStorage} from 'react-native';
-import {createDrawerNavigator,createTabNavigator,createStackNavigator} from 'react-navigation';
+import{ View, Text,Button,AsyncStorage,ScrollView,Image,ViewList,SafeAreaView,Dimensions} from 'react-native';
+import {createDrawerNavigator,createStackNavigator,DrawerItems,NavigationActions} from 'react-navigation';
 import {Header } from 'react-native-elements'
 import {FontAwesome } from '@expo/vector-icons';
+import { List,ListItem, Card} from 'react-native-elements';
+
 import styles from '../../assets/style/style';
 import color from '../../assets/style/color';
-
+import { meses } from '../../Services/Meses';
+import Principal from './Principal';
+import Menu from './Menu';
+import Pagamento from './Pagamento';
 
 class Mensalidade extends React.Component {
   static navigationOptions = {
@@ -20,62 +25,53 @@ class Mensalidade extends React.Component {
           style={{ color: focused ? '#000' : '#949494'}}
       />
     ),
-  };  
+  };
+    
   render(){
     return(
       <View style={styles.container}>
-        <Menu/> 
-          </View>
-        )
-    }
-     _logoff = async()=>{
-      await AsyncStorage.clear();
-      this.props.navigation.navigate('Login');
-    }
-    _showDetalhes = async()=>{
-      this.props.navigation.navigate('Detalhes');
-    }
-}
-class Mes extends React.Component{
-   render(){
-    return(
-        <Mese/>
-      
-    )
-  }
-}
-class Meses extends React.Component{
-  static navigationOptions={
-    title:'OLa'
-  }
-  render(){
-    return (
-      <View>
-      <Text>Pesquisar sobre o dramItem e contentComponent do drawerNavigator</Text>
+        <MenuLateral />       
       </View>
-    )
-  }
-}
- export const Menu = createStackNavigator(
+        )
+    }     
+} 
+
+
+
+const CustomDrawerContentComponent = (props) => (
+  <ScrollView>
+    <SafeAreaView style={styles.container} forceInset={{ top: 'always', horizontal: 'never' }}>
+      <View style={{paddingTop:28}} >
+        <Image source={require('../../assets/img/logoColisao.png')} style={styles.img_menu}/>
+      </View>
+      <ScrollView>
+         <List>
+         {meses.map((mes)=>(
+           <ListItem
+           key={mes.id}
+           title={mes.descricao}
+           onPress={()=>props.navigation.navigate('Menu',{...mes})}
+           />  
+           
+          ))
+         }
+         </List>      
+         </ScrollView>
+    </SafeAreaView>
+  </ScrollView>
+);
+const Pag = createStackNavigator({
+  Menu:Menu,
+  Page:Pagamento
+},
+{
   
-  {
-    Mes:Mes
-  },
-  {
-    navigationOptions:{
-      title:'Mensalidade',
-      headerLeft:(
-        <FontAwesome name='home' size={50} onPress={()=>this.props.navigation.penDrawer()} />
-      ),
-      headerStyle:{
-        backgroundColor:color.amarelo,
-      }
-    }
-  }
- )
- export const Mese = createDrawerNavigator(
-   {
-   Meses:Meses
-   
- })
+})
+const MenuLateral = createDrawerNavigator({
+  Principal:Principal,
+  Pagamento:Pag,
+  
+},{
+  contentComponent:CustomDrawerContentComponent
+})
 export default Mensalidade;

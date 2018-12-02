@@ -1,6 +1,6 @@
 const color = {
-    amarelo:'#FFF20B',
-    bgColor:'#000',
+    amarelo:'#ffd32a',
+    bgColor:'#1e272e',
     branco:'#fff',
     confirmado:'rgba(50,205,50, 0.5)',
     desativado:'rgba(255,255,255,0.3)',

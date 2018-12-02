@@ -4,24 +4,45 @@ export const meses=[
         descricao:'Janeiro',
         mensalidade:[
             {
-                id:1,
-                jogadores:[
-                    {
-                        id:1,
-                        nome:'lennon',
-                        mensalidade:'PAGO'
-                    },
-                    {
-                        id:2,
-                        nome:'Bruno',
-                        mensalidade:'PENDENTE'
-                    }
-                ]
-            }
-        ],
-        placar:[
+                id_mensalidade:1,
+                nome:'lennon',
+                mensalidade:'PAGO',
+                valor:50
+            },
             {
-                id:1,
+                id_mensalidade:2,
+                nome:'Bruno',
+                mensalidade:'PENDENTE',
+                valor:100
+            },
+            {
+                id_mensalidade:3,
+                nome:'lennon',
+                mensalidade:'PAGO',
+                valor:50
+            },
+            {
+                id_mensalidade:4,
+                nome:'Bruno',
+                mensalidade:'PENDENTE',
+                valor:100
+            },
+            {
+                id_mensalidade:5,
+                nome:'lennon',
+                mensalidade:'PAGO',
+                valor:50
+            },
+            {
+                id_mensalidade:6,
+                nome:'Bruno',
+                mensalidade:'PENDENTE',
+                valor:100
+            }
+        ],       
+        placar:[
+            {   
+                id_placar:1,
                 data:'12/01/19',
                 quadro_2:
                 {
@@ -35,7 +56,7 @@ export const meses=[
                 }, 
             },
             {
-                id:2,
+                id_placar:2,
                 data:'20/01/19',
                 quadro_2:
                 {
@@ -49,7 +70,7 @@ export const meses=[
                 }, 
             },
             {
-                id:3,
+                id_placar:3,
                 data:'27/01/19',
                 quadro_2:
                 {
@@ -63,7 +84,7 @@ export const meses=[
                 }, 
             },
             {
-                id:4,
+                id_placar:4,
                 data:'31/01/19',
                 quadro_2:
                 {
@@ -82,6 +103,20 @@ export const meses=[
     {
         id:2,
         descricao:'Fevereiro',
+        mensalidade:[
+            {
+                id_placar:1,
+                nome:'Edvan',
+                mensalidade:'PAGO',
+                valor:80
+            },
+            {
+                id_placar:2,
+                nome:'Marcio',
+                mensalidade:'PENDENTE',
+                valor:60
+            }
+        ],
         placar:[
             {
                 data:'12/01/19',
@@ -140,6 +175,23 @@ export const meses=[
     {
         id:3,
         descricao:'Março',
+        mensalidade:[
+            {
+                id:3,
+                jogadores:[
+                    {
+                        id:1,
+                        nome:'lennon',
+                        mensalidade:'PAGO'
+                    },
+                    {
+                        id:2,
+                        nome:'Bruno',
+                        mensalidade:'PENDENTE'
+                    }
+                ]
+            }
+        ],
         placar:[
             {
                 data:'12/01/19',
@@ -472,7 +524,7 @@ export const meses=[
             data:'12/01/19',
             quadro_2:
             {
-                colisao:8,
+                colisao:18,
                 adversario:4
             },
             quadro_1:
@@ -696,7 +748,7 @@ export const bid=[
         bid:'s'
     },{
         id:2,
-        nome:'lennon',
+        nome:'Bruno',
         bid:'n'
     },{
         id:3,

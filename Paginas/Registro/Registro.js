@@ -28,12 +28,5 @@ class Registro extends React.Component{
         </View>
       )
     }
-    _home = async ()=>{
-      this.props.navigation.navigate('Mensalidade')
-    };
-    _logoff = async()=>{
-      await AsyncStorage.clear();
-      this.props.navigation.navigate('Login');
-    };
-  } 
+     } 
   export default Registro;

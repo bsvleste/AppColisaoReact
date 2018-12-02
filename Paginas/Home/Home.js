@@ -1,126 +1,65 @@
 import React from 'react'
-import{ View, Text,Button,AsyncStorage,ScrollView,Image,ViewList} from 'react-native';
+import{ View, Text,Button,AsyncStorage,ScrollView,Image,ViewList,SafeAreaView,Dimensions} from 'react-native';
+import {createDrawerNavigator,createStackNavigator,DrawerItems,NavigationActions} from 'react-navigation';
+import {Header } from 'react-native-elements'
 import {FontAwesome } from '@expo/vector-icons';
-import {createDrawerNavigator,createTabNavigator,createStackNavigator} from 'react-navigation';
-import { meses } from '../../Services/Meses';
 import { List,ListItem, Card} from 'react-native-elements';
+
 import styles from '../../assets/style/style';
 import color from '../../assets/style/color';
-
+import { meses } from '../../Services/Meses';
+import Principal from '../Mensalidade/Principal';
+import ListaPlacar from './ListaPlacar';
 
 class Home extends React.Component {
   static navigationOptions = {
-    title:'Home'
-    ,
+    title:'Home',
     header:{
       backgroundColor:'#fff',
     },
     tabBarIcon: ({focused}) => (
       <FontAwesome
-          name='home'
+          name='money'
           size={26}
           style={{ color: focused ? '#000' : '#949494'}}
       />
     ),
   };
-
+    
   render(){
-        return(
-          <View style={styles.container}>
-          <Meses />
-          </View>
+    return(
+      <View style={styles.container}>
+        <MenuLateral />       
+      </View>
         )
-    }
-     _logoff = async()=>{
-      await AsyncStorage.clear();
-      this.props.navigation.navigate('Login');
-    }
-    _showDetalhes = async()=>{
-      this.props.navigation.navigate('Detalhes');
-    }
+    }     
 }
-class Fevereiro extends React.Component {
-  mostraResultado = (mes) =>{
-    this.props.navigation.navigate('Janeiro',{...mes});
-  }
-  render() {
-      return (
-         <ScrollView>
+const CustomDrawerContentComponent = (props) => (
+  <ScrollView>
+    <SafeAreaView style={styles.container} forceInset={{ top: 'always', horizontal: 'never' }}>
+      <View style={{paddingTop:28}} >
+        <Image source={require('../../assets/img/logoColisao.png')} style={styles.img_menu}/>
+      </View>
+      <ScrollView>
          <List>
          {meses.map((mes)=>(
            <ListItem
            key={mes.id}
            title={mes.descricao}
-           onPress={()=>this.mostraResultado(mes)}
+           onPress={()=>props.navigation.navigate('ListaPlacar',{...mes})}
            />  
            
           ))
          }
          </List>      
          </ScrollView>
-      );
-  }
-}
-class Janeiro extends React.Component {
-    render() {
-      const {id,descricao,placar} =this.props.navigation.state.params;
-      const img = '../../assets/img/logoColisao.png';
-      return (
-         <ScrollView style={styles.container}>        
-         {placar.map((resultado)=>(
-          <Card key={resultado.id} containerStyle={styles.exibirTexto}>          
-          <View style={styles.data}>
-          
-          <Text>{resultado.data}</Text>
-          </View>
-          
-          <View style={styles.quadro}>
-          <Text style={styles.texto}>2 Quadro</Text>
-          <Image source={require(img)} style={styles.img}/>
-          <Text style={styles.texto}>{resultado.quadro_2.colisao} X {resultado.quadro_2.adversario}</Text>
-          <FontAwesome
-          name='home'
-          size={50}
-          
-          />
-          </View>
-          <View style={styles.quadro}>
-          <Text style={styles.texto}>1 Quadro</Text>
-          <Image source={require(img)} style={styles.img}/>
-          <Text style={styles.texto}>{resultado.quadro_1.colisao} X {resultado.quadro_1.adversario}</Text>
-          <FontAwesome
-          name='home'
-          size={50}
-          
-          />
-          </View>
-
-        </Card>
-          ))}
-         </ScrollView>
-      );
-  }
-}
-
-export const Meses = createStackNavigator ({
-  Fevereiro:{
-    screen:Fevereiro,
-    navigationOptions:{
-      title:'Placar dos Jogos',
-      headerStyle:{
-        backgroundColor:color.amarelo,
-      }
-    },
-  },
-  Janeiro:{
-    screen:Janeiro,
-    navigationOptions:({navigation})=>({
-      title:`${navigation.state.params.descricao}`,
-      headerStyle:{
-        backgroundColor:color.amarelo,
-      }
-    })
-
-  }
+    </SafeAreaView>
+  </ScrollView>
+);
+const MenuLateral = createDrawerNavigator({
+  Principal:Principal,
+  ListaPlacar:ListaPlacar
+},{
+  contentComponent:CustomDrawerContentComponent
 })
 export default Home;
